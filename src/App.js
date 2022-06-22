@@ -10,6 +10,7 @@ function App() {
          <h1>{counter}</h1>
          <h3>{counter}</h3>
          <h5>{counter}</h5>
+         <button onClick={() => changeCounter(counter += 1)} >Update Counter</button>
       </div>
    );
 }
