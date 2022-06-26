@@ -1,9 +1,15 @@
 import './App.css';
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function App() {
    let [counter, changeCounter] = useState(1);
+
+   useEffect(() => {
+      console.log('useEffect')
+      document.title = counter;
+   }, [counter])
+
    window.changeCounter = changeCounter;
    return (
       <div>
