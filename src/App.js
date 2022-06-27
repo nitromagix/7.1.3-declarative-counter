@@ -7,7 +7,8 @@ function App() {
   let [counterObj, updateObj] = useState({ title: "count", count: 1 });
 
   useEffect(() => {
-    console.log("component");
+    console.log("component mounted");
+    trace('counterObj')(counterObj);
     document.title = `${counterObj.title} - ${counterObj.count}`;
 
     return () => {
@@ -20,7 +21,6 @@ function App() {
       ...counterObj,
       count: counterObj.count + 1,
     }));
-    trace('previous counterObj')(counterObj);
   };
 
   // window.changeCounter = updateObj;
