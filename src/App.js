@@ -4,31 +4,31 @@ import React, { useEffect, useState } from "react";
 import trace from './helper'
 
 function App() {
-  let [obj, updateObj] = useState({ title: "count", counter: 1 });
+  let [counterObj, updateObj] = useState({ title: "count", count: 1 });
 
   useEffect(() => {
     console.log("component");
-    document.title = `${obj.title} - ${obj.counter}`;
+    document.title = `${counterObj.title} - ${counterObj.count}`;
 
     return () => {
       console.log("component unmounted");
     };
-  }, [obj]);
+  }, [counterObj]);
 
   const incrementCounter = () => {
-    updateObj((obj) => ({
-      ...obj,
-      counter: obj.counter + 1,
+    updateObj((counterObj) => ({
+      ...counterObj,
+      count: counterObj.count + 1,
     }));
-    trace('previous obj')(obj);
+    trace('previous counterObj')(counterObj);
   };
 
   // window.changeCounter = updateObj;
   return (
     <div>
-      <h1>{obj.counter}</h1>
-      <h3>{obj.counter}</h3>
-      <h5>{obj.counter}</h5>
+      <h1>{counterObj.count}</h1>
+      <h3>{counterObj.count}</h3>
+      <h5>{counterObj.count}</h5>
       <button onClick={incrementCounter}>Update Counter</button>
     </div>
   );
